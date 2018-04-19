@@ -90,9 +90,7 @@ $(function() {
          });
 
          it('Asynchronous loadFeed loads feeds', function(done) {
-            var container = $('.feed')[0]
-            console.log(container)
-            expect($('.feed .entry').length).toBeGreaterThan(0);
+            expect($('.feed .entry').html().length).toBeGreaterThan(0);
             done();
         });
     });
@@ -108,9 +106,9 @@ $(function() {
 
          beforeEach(function(done) {
             loadFeed(0, function(){
-                oldFeed = $('.feed');
+                oldFeed = $('.feed').html();
                 loadFeed(1, function(done){
-                    newFeed = $('.feed');
+                    newFeed = $('.feed').html();
                     done();
                 });
                 done();
